@@ -1,0 +1,141 @@
+def calcularAreaCirculo(float raio, float ret) {
+    float pi;
+    pi = 3.14159265358979323846;
+    ret = pi * raio * raio;
+    return;
+}
+
+def calcularPerimetroCirculo(float raio, float ret) {
+    float pi;
+    pi = 3.14159265358979323846;
+    ret = 2 * pi * raio;
+    return;
+}
+
+def calcularAreaQuadrado(float lado, float ret) {
+    ret = lado * lado;
+    return;
+}
+
+def calcularPerimetroQuadrado(float lado, float ret) {
+    ret = 4 * lado;
+    return;
+}
+
+def calcularAreaRetangulo(float comprimento, float largura, float ret) {
+    ret = comprimento * largura;
+    return;
+}
+
+def calcularPerimetroRetangulo(float comprimento, float largura, float ret) {
+    ret = 2 * (comprimento + largura);
+    return;
+}
+
+def imprimirFloat(float valor) {
+    print valor;
+    print "\n";
+    return;
+}
+
+def imprimirMensagem(string mensagem) {
+    print mensagem;
+    print "\n";
+    return;
+}
+
+def encontrarMaximo(float a, float b, float c, float ret) {
+    if (a >= b) {
+        if (a >= c) {
+            ret = a;
+        } else {
+            ret = c;
+        }
+    } else {
+        if (b >= c) {
+            ret = b;
+        } else {
+            ret = c;
+        }
+    }
+    return;
+}
+
+def main() {
+    float raio;
+    float lado;
+    float comprimento;
+    float largura;
+
+    raio = 5.0;
+    lado = 4.0;
+    comprimento = 6.0;
+    largura = 3.0;
+
+    float areaCirculo;
+    float perimetroCirculo;
+    areaCirculo = run calcularAreaCirculo(raio, areaCirculo);
+    perimetroCirculo = run calcularPerimetroCirculo(raio, perimetroCirculo);
+
+    print "Área do círculo com raio ";
+    ret = run imprimirFloat(raio);
+    print " é: ";
+    ret = run imprimirFloat(areaCirculo);
+
+    print "Perímetro do círculo com raio ";
+    ret = run imprimirFloat(raio);
+    print " é: ";
+    ret = run imprimirFloat(perimetroCirculo);
+
+    float areaQuadrado;
+    float perimetroQuadrado;
+    areaQuadrado = run calcularAreaQuadrado(lado, areaQuadrado);
+    perimetroQuadrado = run calcularPerimetroQuadrado(lado, perimetroQuadrado);
+
+    print "Área do quadrado com lado ";
+    ret = run imprimirFloat(lado);
+    print " é: ";
+    ret = run imprimirFloat(areaQuadrado);
+
+    print "Perímetro do quadrado com lado ";
+    ret = run imprimirFloat(lado);
+    print " é: ";
+    ret = run imprimirFloat(perimetroQuadrado);
+
+    float areaRetangulo;
+    float perimetroRetangulo;
+    ret = run calcularAreaRetangulo(comprimento, largura, areaRetangulo);
+    ret = run calcularPerimetroRetangulo(comprimento, largura, perimetroRetangulo);
+
+    print "Área do retângulo com comprimento ";
+    ret = run imprimirFloat(comprimento);
+    print " e largura ";
+    ret = run imprimirFloat(largura);
+    print " é: ";
+    ret = run imprimirFloat(areaRetangulo);
+
+    print "Perímetro do retângulo com comprimento ";
+    ret = run imprimirFloat(comprimento);
+    print " e largura ";
+    ret = run imprimirFloat(largura);
+    print " é: ";
+    ret = run imprimirFloat(perimetroRetangulo);
+
+    float areaMaxima;
+    ret = run encontrarMaximo(areaCirculo, areaQuadrado, areaRetangulo, areaMaxima);
+
+    print "A maior área é: ";
+    ret = run imprimirFloat(areaMaxima);
+
+    if (areaMaxima == areaCirculo) {
+        print "A maior área pertence ao círculo.\n";
+    } else {
+        if (areaMaxima == areaQuadrado) {
+            print "A maior área pertence ao quadrado.\n";
+        } else {
+            print "A maior área pertence ao retângulo.\n";
+        }
+    }
+
+    return;
+}

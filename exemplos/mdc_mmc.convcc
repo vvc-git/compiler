@@ -1,0 +1,129 @@
+def mdc(int a, int b, int ret) {
+    if (a < 0) {
+        print "MDC não é definido para números negativos.\n";
+        ret = -1;
+        return;
+    }
+
+    if (b < 0) {
+        print "MDC não é definido para números negativos.\n";
+        ret = -1;
+        return;
+    }
+
+    int temp;
+    for (temp = 0; b != 0; temp = temp) {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    ret = a;
+    return;
+}
+
+def mmc(int a, int b, int ret) {
+    if (a <= 0) {
+        print "MMC não é definido para números não positivos.\n";
+        ret = -1;
+        return;
+    }
+
+    if (b <= 0) {
+        print "MMC não é definido para números não positivos.\n";
+        ret = -1;
+        return;
+    }
+
+    int mdcResultado;
+    mdcResultado = run mdc(a, b, mdcResultado);
+    ret = (a / mdcResultado) * b;
+    return;
+}
+
+def printMDC(int a, int b) {
+    int mdcResultado;
+    mdcResultado = run mdc(a, b, mdcResultado);
+    
+    if (mdcResultado != -1) {
+        print "MDC de ";
+        print a;
+        print " e ";
+        print b;
+        print " é ";
+        print mdcResultado;
+        print "\n";
+    } else {
+        print "Impossível calcular o MDC para números negativos.\n";
+    }
+
+    return;
+}
+
+def printMMC(int a, int b) {
+    int mmcResultado;
+    mmcResultado = run mmc(a, b, mmcResultado);
+    
+    if (mmcResultado != -1) {
+        print "MMC de ";
+        print a;
+        print " e ";
+        print b;
+        print " é ";
+        print mmcResultado;
+        print "\n";
+    } else {
+        print "Impossível calcular o MMC para números não positivos.\n";
+    }
+
+    return;
+}
+
+def testMDCeMMC() {
+    int num1;
+    int num2;
+    num1 = 48;
+    num2 = 18;
+
+    ret = run printMDC(num1, num2);
+    ret = run printMMC(num1, num2);
+
+    return;
+}
+
+def testCasosNegativos() {
+    int num1;
+    int num2;
+    num1 = -48;
+    num2 = -18;
+
+    ret = run printMDC(num1, num2);
+    ret = run printMMC(num1, num2);
+
+    return;
+}
+
+def testCasosPositivos() {
+    int num1;
+    int num2;
+    num1 = 56;
+    num2 = 98;
+
+    ret = run printMDC(num1, num2);
+    ret = run printMMC(num1, num2);
+
+    return;
+}
+
+def main() {
+    print "Testando casos positivos:\n";
+    ret = run testCasosPositivos();
+
+    print "\nTestando casos negativos:\n";
+    ret = run testCasosNegativos();
+
+    print "\nTestando casos normais:\n";
+    ret = run testMDCeMMC();
+
+    return;
+}

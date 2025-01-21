@@ -1,0 +1,123 @@
+def fatorial(int n, int ret) {
+    if (n < 0) {
+        print "Fatorial não é definido para números negativos.\n";
+        ret = -1;
+        return;
+    }
+
+    if (n == 0) {
+        ret = 1;
+        return;
+    }
+
+    if (n == 1) {
+        ret = 1;
+        return;
+    }
+
+    int resultado;
+    resultado = 1;
+
+    int i;
+    for (i = 2; i <= n; i = i + 1) {
+        resultado = resultado * i;
+    }
+
+    ret = resultado;
+    return;
+}
+
+def fibonacci(int n, int ret) {
+    if (n < 0) {
+        print "Fibonacci não é definido para números negativos.\n";
+        ret = -1;
+        return;
+    }
+
+    if (n == 0) {
+        ret = 0;
+        return;
+    }
+
+    if (n == 1) {
+        ret = 1;
+        return;
+    }
+
+    int anterior;
+    int atual;
+    anterior = 0;
+    atual = 1;
+
+    int i;
+    for (i = 2; i <= n; i = i + 1) {
+        int temp;
+        temp = atual;
+        atual = atual + anterior;
+        anterior = temp;
+    }
+
+    ret = atual;
+    return;
+}
+
+def potencia(int base, int expoente, int ret) {
+    if (expoente < 0) {
+        print "Expoentes negativos não são suportados.\n";
+        ret = -1;
+        return;
+    }
+
+    int resultado;
+    resultado = 1;
+
+    int i;
+    for (i = 0; i < expoente; i = i + 1) {
+        resultado = resultado * base;
+    }
+
+    ret = resultado;
+    return;
+}
+
+def main() {
+    int numero;
+    numero = 5;
+
+    int base;
+    int expoente;
+    base = 2;
+    expoente = 3;
+
+    int resultadoFatorial;
+    int resultadoFibonacci;
+    int resultadoPotencia;
+
+    resultadoFatorial = run fatorial(numero, resultadoFatorial);
+    resultadoFibonacci = run fibonacci(numero, resultadoFibonacci);
+    resultadoPotencia = run potencia(base, expoente, resultadoPotencia);
+
+    if (resultadoFatorial != -1) {
+        print "Fatorial de ";
+        print numero;
+        print " é ";
+        print resultadoFatorial;
+        print "\n";
+    }
+
+    if (resultadoFibonacci != -1) {
+        print "Fibonacci de ";
+        print numero;
+        print " é ";
+        print resultadoFibonacci;
+        print "\n";
+    }
+
+    if (resultadoPotencia != -1) {
+        print "2 elevado a 3 é ";
+        print resultadoPotencia;
+        print "\n";
+    }
+
+    return;
+}

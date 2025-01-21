@@ -1,0 +1,26 @@
+def main() {
+    int arrayA[5];
+    int arrayB[5];
+    int resultado[5];
+    int i;
+
+    for (i = 0; i < 5; i = i + 1) {
+        arrayA[i] = i;
+    }
+
+    for (i = 5; i < 10; i = i + 1) {
+        arrayB[i] = i;
+    }
+
+    for (i = 0; i < 5; i = i + 1) {
+        resultado[i] = arrayA[i] * arrayB[i];
+    }
+
+    print "Resultado da multiplicação elemento por elemento:";
+    for (i = 0; i < 5; i = i + 1) {
+        print resultado[i];
+        print "\n";
+    }
+
+    return;
+}
